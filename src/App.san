@@ -1,11 +1,15 @@
 <template>
     <div class="app-container">
-        <img src="./assets/logo.svg" alt="" class="app-logo">
-        <h1 class="color-red">{{name}}</h1>
-
-        <router-link to="/wang">老王</router-link>
-        <router-link to="/ant">蚂蚁元素</router-link>
-
+        <img src="./assets/logo.svg" alt="san" class="app-logo">
+        {{#router}}
+        <router-link to="/sun">菜单一</router-link>
+        <router-link to="/moon">菜单二</router-link>
+        {{/router}}
+        <ul>
+            <li s-for="item in list">
+                \{{item.descpt}}
+            </li>
+        </ul>
         <div id="content"></div>
     </div>
 
@@ -13,6 +17,18 @@
 
 <script>
 import {Link} from 'san-router';
+import axios from 'axios';
+const instance = axios.create({
+    baseURL: '/',
+    timeout: 30000
+});
+
+instance.interceptors.response.use(function (response) {
+    const data = response.data;
+    return data;
+}, function (error) {
+    return Promise.reject(error);
+});
 
 export default {
     compiled(){
@@ -25,18 +41,23 @@ export default {
         return {
             name: 'san 一个MVVM框架'
         };
+    },
+    attached() {
+        instance.get('/cms/import/list').then(data => {
+            this.data.set('list', data.data.list);
+        });
     }
 };
 </script>
 
 <style lang="stylus">
+.app-container
+    .color-red
+        color green
+        font-size 42px
 
-.color-red
-    color green
-    font-size 42px
-
-.app-logo
-    display block
-    width 100px
-    margin 0 auto
+    .app-logo
+        display block
+        width 100px
+        margin 0 auto
 </style>

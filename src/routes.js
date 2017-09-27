@@ -1,24 +1,28 @@
-import Wang from './components/Wang.san';
-import ant from './components/ant.san';
+/**
+ * @file route config
+ * @author jady
+ */
+
+import Moon from './components/Moon.san';
+import Sun from './components/Sun.san';
 import san from 'san';
 
-const routes = [
+export default [
     {
         rule: '/',
         Component: san.defineComponent({
-            template: '<p>zzz欢迎</p>'
+            template: '<p>欢迎</p>'
         }),
-        target: '#content'
-    }
-    , {
-        rule: '/wang',
-        Component: Wang,
         target: '#content'
     },
     {
-        rule: '/ant',
-        Component: ant,
+        rule: '/moon',
+        Component: Moon,
         target: '#content'
-    }];
-
-export default routes;
+    },
+    {
+        rule: '/sun',
+        Component: Sun,
+        target: '#content'
+    }
+];

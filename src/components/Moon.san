@@ -1,12 +1,12 @@
 <template>
     <div class="wang-container">
-        <h2>{{name}}</h2>
+        <h2>\{{name}}</h2>
         <son father="{{father}}" on-bubble="onBubble($event)"></son>
     </div>
 </template>
 
 <script>
-import Son from './Son.san';
+import Son from './Sun.san';
 
 export default {
     components: {
@@ -14,8 +14,8 @@ export default {
     },
     initData() {
         return {
-            name: '我是快乐的老王',
-            father: ' 王叔叔'
+            name: '孙悟空',
+            father: ' 孙悟空'
         };
     },
     onBubble(value) {

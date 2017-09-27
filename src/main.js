@@ -1,18 +1,29 @@
+/**
+ * @file entry file
+ * @author jady
+ */
+
 import App from './App.san';
 
+{{#router}}
 import routes from './routes';
 import {Router} from 'san-router';
+{{/router}}
 
 const app = new App();
+{{#router}}
 const router = new Router();
+{{/router}}
 
 app.attach(document.getElementById('app'));
 
+{{#router}}
 routes.forEach(route => router.add(route));
 router.start();
+{{/router}}
 
 // hmr 更新逻辑
-if (module.hot) {
+if (process.env.NODE_ENV === 'development' && module.hot) {
     module.hot.data = {app, router};
 
     // 接受热更新的依赖数组

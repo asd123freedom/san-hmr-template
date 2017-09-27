@@ -1,7 +1,13 @@
-var path = require('path');
-var utils = require('./utils');
-var config = require('../config');
-var sanLoaderConfig = require('./san-loader.conf');
+/**
+ * @file webpack.base.config inspired by vue-cli
+ * @author jady
+ */
+
+const path = require('path');
+const utils = require('./utils');
+const config = require('../config');
+const sanLoaderConfig = require('./san-loader.conf');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -66,5 +72,8 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new CaseSensitivePathsPlugin()
+    ]
 };

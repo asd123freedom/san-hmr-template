@@ -1,23 +1,16 @@
 <template>
     <div on-click="onClick" class="son-container">
-        <h1>{{name}}</h1>
-        <p>我的隔壁是{{father}}</p>
+        <h1>\{{name}}</h1>
     </div>
 </template>
 
 <script>
-import Ant from './ant.san';
-
 export default {
-    components: {
-        'ant': Ant
-    },
     attached() {
-        console.log('son-attached');
     },
     initData() {
         return {
-            name: '我是儿子'
+            name: '孙悟饭'
         };
     },
     onClick() {
