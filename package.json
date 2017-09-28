@@ -26,8 +26,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "san": "^3.2.1"{{#router}},
-    "san-router": "^1.1.0"
-    {{/router}}
+    "san-router": "^1.1.0"{{/router}}
   },
   "devDependencies": {
     "autoprefixer": "^7.1.3",
