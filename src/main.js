@@ -24,7 +24,9 @@ router.start();
 
 // hmr 更新逻辑
 if (process.env.NODE_ENV === 'development' && module.hot) {
-    module.hot.data = {app{{#router}}, router{{/router}}};
+    module.hot.data = {
+        app{{#router}}, router{{/router}}
+    };
 
     // 接受热更新的依赖数组
     module.hot.accept([{{#router}}'./routes', {{/router}}'./App.san'], () => {
