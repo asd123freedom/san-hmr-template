@@ -54,6 +54,8 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
         {{/router}}
 
         // app传递给module.hot.data以便下次更新时销毁
-        module.hot.data = {app{{#router}}, router{{/router}}};
+        module.hot.data = {
+            app{{#router}}, router{{/router}}
+        };
     });
 }
