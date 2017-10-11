@@ -36,9 +36,11 @@ export default {
     compiled(){
         console.log('app compiled');
     },
+    {{#router}}
     components: {
         'router-link': Link
     },
+    {{/router}}
     initData() {
         return {
             name: 'san 一个MVVM框架'
